@@ -1,0 +1,147 @@
+?* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+              url('https://tse2.mm.bing.net/th?id=OIP.dDCLw6qRlSkqNzXYb-HdEgHaEK&pid=Api&P=0&h=180') no-repeat center center fixed;
+  background-size: cover;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  min-height: 100vh;
+}
+
+/* Main Container */
+.app-container {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 30px;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  flex: 1;
+}
+
+
+/* Weather Display Grid */
+.weather-display {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  grid-auto-rows: min-content;
+}
+
+/* Card Styles */
+.weather-card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.current-weather-card {
+  grid-column: 1 / -1;
+}
+
+/* Hourly Forecast Scroll */
+.hourly-scroll {
+  display: flex;
+  overflow-x: auto;
+  gap: 15px;
+  padding: 10px 0;
+  scrollbar-width: thin;
+}
+
+.hourly-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 60px;
+}
+
+/* Temperature Chart */
+.temp-chart {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+  .app-container {
+      grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .weather-display {
+      grid-template-columns: 1fr;
+  }
+  
+  body {
+      padding: 10px;
+  }
+}
+.map-placeholder {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  margin-top: 10px;
+}
+.temp-display {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.current-temp {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.feels-like {
+  opacity: 0.8;
+  font-size: 1rem;
+}
+
+/* Map Card Container */
+.weather-map-card {
+  grid-column: span 2; /* Makes it full width */
+  margin: 0 auto; /* Centers horizontally */
+  width: 100%;
+  max-width: 1000px; /* Adjust as needed */
+}
+
+.map-container-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+}
+
+.map-container {
+  width: 95%; /* Slight padding */
+  height: 400px; /* Fixed height */
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Leaflet map specific adjustments */
+.leaflet-container {
+  background-color: rgba(0, 0, 0, 0.2) !important;
+}
